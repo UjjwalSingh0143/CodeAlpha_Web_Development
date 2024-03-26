@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .social-box {
+            background-color: #fff;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-box h2 {
+            margin-top: 0;
+        }
+
+        .posts {
+            margin-top: 20px;
+        }
+
+        .post {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .post p {
+            margin: 5px 0;
+        }
+
+        .post img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Social Media Dashboard</h1>
+    </header>
+    <nav>
+        <a href="#" id="facebook">Facebook</a>
+        <a href="#" id="twitter">Twitter</a>
+        <a href="#" id="instagram">Instagram</a>
+    </nav>
+    <div class="container">
+        <div class="social-box" id="facebook-content">
+            <h2>Facebook</h2>
+            <div class="posts">
+                <!-- Facebook posts will appear here -->
+            </div>
+        </div>
+        <div class="social-box" id="twitter-content">
+            <h2>Twitter</h2>
+            <div class="posts">
+                <!-- Twitter posts will appear here -->
+            </div>
+        </div>
+        <div class="social-box" id="instagram-content">
+            <h2>Instagram</h2>
+            <div class="posts">
+                <!-- Instagram posts will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to fetch and display social media posts
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to fetch Facebook posts
+            function fetchFacebookPosts() {
+                // Simulated data for demonstration
+                const posts = [
+                    { content: "Facebook post 1", image: "https://via.placeholder.com/150" },
+                    { content: "Facebook post 2", image: "https://via.placeholder.com/150" },
+                    { content: "Facebook post 3", image: "https://via.placeholder.com/150" }
+                ];
+
+                const postsContainer = document.getElementById('facebook-content').getElementsByClassName('posts')[0];
+
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    postElement.innerHTML = `
+                        <p>${post.content}</p>
+                        <img src="${post.image}" alt="Facebook post image">
+                    `;
+
+                    postsContainer.appendChild(postElement);
+                });
+            }
+
+            // Function to fetch Twitter posts
+            function fetchTwitterPosts() {
+                // Simulated data for demonstration
+                const posts = [
+                    { content: "Twitter post 1" },
+                    { content: "Twitter post 2" },
+                    { content: "Twitter post 3" }
+                ];
+
+                const postsContainer = document.getElementById('twitter-content').getElementsByClassName('posts')[0];
+
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    postElement.innerHTML = `
+                        <p>${post.content}</p>
+                    `;
+
+                    postsContainer.appendChild(postElement);
+                });
+            }
+
+            // Function to fetch Instagram posts
+            function fetchInstagramPosts() {
+                // Simulated data for demonstration
+                const posts = [
+                    { image: "https://via.placeholder.com/150" },
+                    { image: "https://via.placeholder.com/150" },
+                    { image: "https://via.placeholder.com/150" }
+                ];
+
+                const postsContainer = document.getElementById('instagram-content').getElementsByClassName('posts')[0];
+
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    postElement.innerHTML = `
+                        <img src="${post.image}" alt="Instagram post image">
+                    `;
+
+                    postsContainer.appendChild(postElement);
+                });
+            }
+
+            // Fetch and display posts when clicking on the navigation links
+            document.getElementById('facebook').addEventListener('click', function (e) {
+                e.preventDefault();
+                fetchFacebookPosts();
+            });
+
+            document.getElementById('twitter').addEventListener('click', function (e) {
+                e.preventDefault();
+                fetchTwitterPosts();
+            });
+
+            document.getElementById('instagram').addEventListener('click', function (e) {
+                e.preventDefault();
+                fetchInstagramPosts();
+            });
+        });
+    </script>
+</body>
+</html>
